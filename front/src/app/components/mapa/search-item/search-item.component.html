@@ -1,0 +1,18 @@
+<div *ngIf="isLoadingPlaces" class="alert alert-dismissible alert-warning mt-2 text-dark">
+    <h6>Cargando</h6>
+    <span>Espere por favor...</span>
+</div>
+
+<div class="list-group mt-2 " *ngIf="places.length > 0">
+
+    <div  class="lista-group-item lista-group-item-action pointer pt-1 ps-1 rounded-3 " *ngFor="let place of places" (click)="flyTo(place)" [class.bg-secondary]="place.id === selectedId">
+
+        <h6>
+            {{place.text}}
+        </h6>
+        <p>
+          {{place.place_name}}
+        </p>
+        <button class="btn btn-primary btn-sm bg-primary" (click)="savePlace(place.id)">Guardar Favoritos</button>
+    </div>
+</div>
