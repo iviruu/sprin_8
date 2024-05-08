@@ -2,7 +2,7 @@ import express, {Application, Request, Response} from 'express';
 import cors from 'cors'
 import routesProducto from '../routes/producto';
 import db from '../db/connection';
-import routes2Sitios from '../routes/sitios'
+import routesSitios from '../routes/sitios'
 
 
 class Server {
@@ -27,15 +27,15 @@ class Server {
     routes(){
         this.app.get('/maps',(req:Request,res:Response)=>{
             res.json({
-              msg: 'API Worki'
+              msg: 'API Worki maps'
             })  
           })
-          this.app.use('/api/sitios',routes2Sitios)
+          this.app.use('/api/sitios',routesSitios)
 
           
         this.app.get('/',(req:Request,res:Response)=>{
           res.json({
-            msg: 'API Worki'
+            msg: 'API Worki crud'
           })  
         })
         this.app.use('/api/productos',routesProducto)

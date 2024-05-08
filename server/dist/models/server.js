@@ -34,13 +34,13 @@ class Server {
     routes() {
         this.app.get('/maps', (req, res) => {
             res.json({
-                msg: 'API Worki'
+                msg: 'API Worki maps'
             });
         });
         this.app.use('/api/sitios', sitios_1.default);
         this.app.get('/', (req, res) => {
             res.json({
-                msg: 'API Worki'
+                msg: 'API Worki crud'
             });
         });
         this.app.use('/api/productos', producto_1.default);

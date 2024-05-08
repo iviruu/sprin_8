@@ -4,6 +4,7 @@ import { LocalizacionService } from '../../shared/servicios/localizacion.service
 import { MapService } from '../../shared/servicios/map.service';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
+import { MarkerService } from '../../shared/servicios/marker.service';
 
 
 
@@ -21,6 +22,7 @@ export class MapaComponent implements AfterViewInit  {
   constructor(
     private localizacion: LocalizacionService,
     private mapService: MapService,
+    private marker:MarkerService,
   ){}
 
 
@@ -40,7 +42,7 @@ private initializeMap(location: [number, number]): void {
     center: location,
     zoom: 11,
   });
-
+  
   const popup = new Popup()
   .setHTML(
     `
@@ -56,10 +58,8 @@ private initializeMap(location: [number, number]): void {
     .setPopup(popup)
     .addTo( map)
 
-
   this.mapService.setMap( map);
-
-
+  this.marker.setMap(map);
 }
 
 

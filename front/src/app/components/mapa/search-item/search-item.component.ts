@@ -37,7 +37,6 @@ export class SearchItemComponent {
   }
   savePlace(i:string){
     this.mapService.savePlace(i)
-    console.log(this.sitios.todosSitios)
   }
 
 

@@ -19,8 +19,8 @@ const Sitios = connection_1.default.define('Sitios', {
     place_name: {
         type: sequelize_1.DataTypes.STRING
     },
-    center: {
-        type: sequelize_1.DataTypes.STRING
+    geometry: {
+        type: sequelize_1.DataTypes.GEOMETRY
     }
 }, {
     createdAt: false,

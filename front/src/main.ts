@@ -3,6 +3,7 @@ import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
 import mapboxgl from 'mapbox-gl'; 
 import { environment } from './environments/environment';
+import { CommonModule } from '@angular/common';
 
 mapboxgl.accessToken = environment.apiKey;
 bootstrapApplication(AppComponent, appConfig)

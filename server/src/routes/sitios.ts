@@ -3,13 +3,13 @@ import { deleteSitios, getSitio, getSitios, postSitios, updateSitios } from '../
 
 
 
-const router2 = Router();
+const router = Router();
 
-router2.get('/',getSitios);
-router2.get('/:id',getSitio);
-router2.delete('/:id',deleteSitios);
-router2.post('/',postSitios);
-router2.put('/:id',updateSitios);
+router.get('/',getSitios);
+router.get('/:id',getSitio);
+router.delete('/:id',deleteSitios);
+router.post('/',postSitios);
+router.put('/:id',updateSitios);
 
 
-export default router2;
+export default router;

@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LngLatLike, Map, Marker, Popup } from 'mapbox-gl';
+import { LngLatLike, Map, Marker, Point, Popup } from 'mapbox-gl';
 import { environment } from '../../../environments/environment';
 import { Feature, PlacesResultes } from '../../interface/places';
 import { LocalizacionService } from './localizacion.service';
 import { SitiosService } from './sitios.service';
 import { Puntos } from '../../interface/puntos';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,7 @@ export class MapService {
   get isMapReady(){
     return !!this.map
   }
+  
   setMap( map: Map){
     this.map = map;
   }
@@ -36,6 +38,7 @@ export class MapService {
     private http: HttpClient,
     private local:LocalizacionService,
     private sitios: SitiosService,
+    private router:Router,
 
   ) { }
 
@@ -82,15 +85,34 @@ export class MapService {
   savePlace(i: string): Puntos | undefined {
     for (const place of this.places) {
       if (place.id === i) {
-        const { id, text, place_name, center, properties: { category } } = place;
-        const sitio: Puntos = { id, text, place_name, center, category }
-        console.log('este es objeto',sitio);
-        console.log(this.sitios.getListSitio())
-        return sitio;
+        const { id, text, place_name, properties: {category}, geometry } = place;
+        const sitio: Puntos= {
+          id: id,
+          text: text,
+          place_name: place_name,
+          geometry: geometry,
+          category: category
+        }
+        
+        this.addSitio(sitio);
+        return  sitio;
         
       }
     }
     return undefined;  // Retorna undefined si no se encuentra ningún lugar con el id especificado
+  }
+  listaSitios:Puntos[]= []
+  getListSitios(){
+    
+    this.sitios.getListSitio().subscribe((data:Puntos[])=>{
+      
+      
+    })
+  }
+
+  addSitio(sitio: Puntos){
+    this.sitios.saveSitio(sitio).subscribe(()=>{
+    })
   }
 
 

@@ -16,8 +16,8 @@ const Sitios = db.define('Sitios',{
     place_name:{
         type: DataTypes.STRING
     },
-    center:{
-        type: DataTypes.STRING
+    geometry:{
+        type: DataTypes.GEOMETRY
     }
 },{
     createdAt: false,

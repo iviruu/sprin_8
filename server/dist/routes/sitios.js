@@ -2,10 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const sitios_1 = require("../controllers/sitios");
-const router2 = (0, express_1.Router)();
-router2.get('/', sitios_1.getSitios);
-router2.get('/:id', sitios_1.getSitio);
-router2.delete('/:id', sitios_1.deleteSitios);
-router2.post('/', sitios_1.postSitios);
-router2.put('/:id', sitios_1.updateSitios);
-exports.default = router2;
+const router = (0, express_1.Router)();
+router.get('/', sitios_1.getSitios);
+router.get('/:id', sitios_1.getSitio);
+router.delete('/:id', sitios_1.deleteSitios);
+router.post('/', sitios_1.postSitios);
+router.put('/:id', sitios_1.updateSitios);
+exports.default = router;
