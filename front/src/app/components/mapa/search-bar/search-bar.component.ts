@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SearchItemComponent } from '../search-item/search-item.component';
-import { MapService } from '../../../shared/servicios/map.service';
+import { MapService } from '../../../shared/servicios/maps/map.service';
 
 @Component({
   selector: 'app-search-bar',

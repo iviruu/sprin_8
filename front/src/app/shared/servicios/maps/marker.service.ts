@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Puntos } from '../../interface/puntos';
+import { Puntos } from '../../../interface/puntos';
 import { Map, Marker, Popup } from 'mapbox-gl';
 
 @Injectable({

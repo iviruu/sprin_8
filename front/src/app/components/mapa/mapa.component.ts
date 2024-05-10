@@ -1,10 +1,10 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import mapboxgl, {Map, Marker, Popup} from 'mapbox-gl';
-import { LocalizacionService } from '../../shared/servicios/localizacion.service';
-import { MapService } from '../../shared/servicios/map.service';
+import { LocalizacionService } from '../../shared/servicios/maps/localizacion.service';
+import { MapService } from '../../shared/servicios/maps/map.service';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
-import { MarkerService } from '../../shared/servicios/marker.service';
+import { MarkerService } from '../../shared/servicios/maps/marker.service';
 
 
 

@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LngLatLike, Map, Marker, Point, Popup } from 'mapbox-gl';
-import { environment } from '../../../environments/environment';
-import { Feature, PlacesResultes } from '../../interface/places';
+import { environment } from '../../../../environments/environment';
+import { Feature, PlacesResultes } from '../../../interface/places';
 import { LocalizacionService } from './localizacion.service';
 import { SitiosService } from './sitios.service';
-import { Puntos } from '../../interface/puntos';
+import { Puntos } from '../../../interface/puntos';
 import { Router } from '@angular/router';
 
 @Injectable({

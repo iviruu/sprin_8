@@ -17,6 +17,7 @@ const cors_1 = __importDefault(require("cors"));
 const producto_1 = __importDefault(require("../routes/producto"));
 const connection_1 = __importDefault(require("../db/connection"));
 const sitios_1 = __importDefault(require("../routes/sitios"));
+const events_1 = __importDefault(require("../routes/events"));
 class Server {
     constructor() {
         this.app = (0, express_1.default)();
@@ -32,6 +33,12 @@ class Server {
         });
     }
     routes() {
+        this.app.get('/calendar', (req, res) => {
+            res.json({
+                msg: 'API Worki maps'
+            });
+        });
+        this.app.use('/api/events', events_1.default);
         this.app.get('/maps', (req, res) => {
             res.json({
                 msg: 'API Worki maps'

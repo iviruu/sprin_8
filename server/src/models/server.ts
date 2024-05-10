@@ -3,7 +3,7 @@ import cors from 'cors'
 import routesProducto from '../routes/producto';
 import db from '../db/connection';
 import routesSitios from '../routes/sitios'
-
+import routesEvents from '../routes/events'
 
 class Server {
     private app: Application;
@@ -25,20 +25,27 @@ class Server {
     }
 
     routes(){
-        this.app.get('/maps',(req:Request,res:Response)=>{
+        this.app.get('/calendar',(req:Request,res:Response)=>{
             res.json({
               msg: 'API Worki maps'
             })  
           })
-          this.app.use('/api/sitios',routesSitios)
+          this.app.use('/api/events',routesEvents)
+
+        this.app.get('/maps',(req:Request,res:Response)=>{
+            res.json({
+              msg: 'API Worki maps'
+            })  
+          });
+          this.app.use('/api/sitios',routesSitios);
 
           
         this.app.get('/',(req:Request,res:Response)=>{
           res.json({
             msg: 'API Worki crud'
           })  
-        })
-        this.app.use('/api/productos',routesProducto)
+        });
+        this.app.use('/api/productos',routesProducto);
     }
 
         

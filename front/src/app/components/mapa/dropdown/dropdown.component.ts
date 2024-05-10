@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MapService } from '../../../shared/servicios/map.service';
-import { SitiosService } from '../../../shared/servicios/sitios.service';
+import { MapService } from '../../../shared/servicios/maps/map.service';
+import { SitiosService } from '../../../shared/servicios/maps/sitios.service';
 import { Puntos } from '../../../interface/puntos';
 import { CommonModule, NgFor } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MarkerService } from '../../../shared/servicios/marker.service';
+import { MarkerService } from '../../../shared/servicios/maps/marker.service';
 
 @Component({
   selector: 'app-dropdown',

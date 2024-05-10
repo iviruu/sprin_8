@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { MapService } from '../../../shared/servicios/map.service';
+import { MapService } from '../../../shared/servicios/maps/map.service';
 import { CommonModule } from '@angular/common';
 import { Feature } from '../../../interface/places';
-import { SitiosService } from '../../../shared/servicios/sitios.service';
+import { SitiosService } from '../../../shared/servicios/maps/sitios.service';
 
 @Component({
   selector: 'app-search-item',
