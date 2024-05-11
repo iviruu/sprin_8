@@ -1,8 +1,5 @@
 .container-drop{
-    background-color: rgba(181, 214, 237, 0.696);
-    position: fixed;
-    width: 15%;
-    top: 15%;
-    left: 80%;
+    position: relative;
     z-index: 2;
 }
+

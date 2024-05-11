@@ -1,12 +1,15 @@
-<form [formGroup]="checkboxForm" >
-<fieldset class="container-drop text-primary p-2">
-  <legend class="mt-1">Sitios favoritos:</legend>
+
+
+<form [formGroup]="checkboxForm" class="row container-drop text-primary p-2 bg-light rounded-3 d-inline-flex">
+<fieldset>
+  <legend class="mt-1 col">Sitios favoritos:</legend>
   @for (category of categories; track $index) {
-  <div class="form-check">
-    <label class="form-check-label" >Enseñar los teatros favoritos ()
-    <input class="form-check-input" type="checkbox" formControlName="{{ category }}" >{{ category | titlecase }}
+  <div class="form-check col">
+    <label class="form-check-label" >{{ category | titlecase }} favorito.
+    <input class="form-check-input bg-info" type="checkbox" formControlName="{{ category }}" >
     </label>
   </div>
 }
 </fieldset>
 </form>
+

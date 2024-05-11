@@ -1,6 +1,7 @@
 
-<div class="search-container navbar bg-light">
-    <input type="text" class="form-control" placeholder="Buscar lugar..." #txtQuery (keyup)="onQueryChanged(txtQuery.value)">
-
-    <app-search-item class="text-dark"></app-search-item>
-</div>
+    <div class="row ">
+        <div class="col p-0 rounded-3 search-container bg-light">
+            <input type="text" class="form-control" placeholder="Buscar lugar..." #txtQuery (keyup)="onQueryChanged(txtQuery.value)">
+            <app-search-item class="text-dark"></app-search-item>
+        </div>
+    </div>
