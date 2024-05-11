@@ -1,6 +1,6 @@
 export interface Events {
-    id:              number;
-    startStr:        string;
+    id?:              number;
+    start:           string;
     title:           string;
     backgroundColor: string;
 }

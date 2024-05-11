@@ -1,2 +1,7 @@
 
-<full-calendar [options]="calendarOptions" [events]="getEvents"></full-calendar>
+
+
+<full-calendar [options]="calendarOptions"></full-calendar>
+
+<app-event *ngIf="modal" class="event" [ngClass]="{'show': modal}"></app-event>
+

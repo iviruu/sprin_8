@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { Events } from '../../../interface/events';
 
@@ -11,13 +11,26 @@ export class CalendarService {
 
   private myAppUrl2: string;
    private myApiUrl2: string;
+  
+  private modalSubject: BehaviorSubject<boolean>;
+  public modal$: Observable<boolean>;
+
+  idEvent: string = '';
+  dataEvent: string = '';
+
 
 
   constructor(
     private http: HttpClient  ,
   ) {
     this.myAppUrl2 = environment.endpoint;
-    this.myApiUrl2 = 'api/events/'
+    this.myApiUrl2 = 'api/events/';
+    this.modalSubject = new BehaviorSubject<boolean>(false);
+    this.modal$ = this.modalSubject.asObservable();
+  }
+
+  upDateModal(date: boolean){
+    this.modalSubject.next(date);
   }
 
   getListEvents(): Observable<Events[]>{

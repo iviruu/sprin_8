@@ -8,7 +8,7 @@ const Event = db.define('Eventos',{
         primaryKey: true,
         autoIncrement: true
     },
-    startStr:{
+    start:{
         type: DataTypes.STRING
     },
     title:{
