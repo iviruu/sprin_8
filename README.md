@@ -83,6 +83,10 @@ Ejecuta la aplicación con el siguiente comando en terminal de front:
 ng serve -o
 ```
 
+Y para usar MapBox tienes que usar un token que lo tienes que poner en documentos que estan en carpeta enviaronment.
+
+apiKey: ''( entre comillas pones tu token)
+
 
 ## Uso 🚀
 
