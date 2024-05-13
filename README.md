@@ -10,7 +10,7 @@ Este repositorio contiene los recursos de diferentes aplicaciones web para reali
 ## Características ✨
 
 - **Crear productos**: Crear productos con nombre, precio y descripción. Después de crear un producto, se puede editar o eliminar.
-- **Guardar informacion en base de datos**: Guardar la informacion toda la informacion en la base de datos.
+- **Guardar informacion en base de datos**: Guardar la informacion en la base de datos.
 - **Buscar sitios en Mapbox**: Buscar sitios en Mapbox y mostrarlos en el mapa. Después de buscar un sitio, se puede guardar en la base de datos. y enseñar en por categorias.
 - **Usar FullCalendar**: Se puede crear eventos en FullCalendar y guardarlos en la base de datos.
 
@@ -69,7 +69,13 @@ cd server
 npm install
 ```
 
-7. Levanta el servidor:
+7. Tienes que entrar en xampp y abrir el servidor de apache y mysql.
+
+8. Tienes que crear una base de datos en phpmyadmin con el nombre de "almacen".
+
+9. Tienes que importar el archivo almacen.sql que esta en la carpeta phpmyadmin.
+
+10. Levanta el servidor:
 
 ```bash 
 nodemon dast/index.js
@@ -77,13 +83,13 @@ nodemon dast/index.js
 
 
 ## Ejecución ▶️
-Ejecuta la aplicación con el siguiente comando en terminal de front:
+Ejecuta la aplicación con el siguiente comando en terminal de front( en terminal con cd front):
 
 ```bash
 ng serve -o
 ```
 
-Y para usar MapBox tienes que usar un token que lo tienes que poner en documentos que estan en carpeta enviaronment.
+Y para usar MapBox tienes que usar un token, lo tienes que poner en linia de codigo que estan en carpeta enviaronment.
 
 apiKey: ''( entre comillas pones tu token)
 
