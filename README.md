@@ -73,12 +73,12 @@ npm install
 
 8. Tienes que crear una base de datos en phpmyadmin con el nombre de "almacen".
 
-9. Tienes que importar el archivo almacen.sql que esta en la carpeta phpmyadmin.
+9. Tienes que importar el archivo almacen.sql que esta en la carpeta "db".
 
 10. Levanta el servidor:
 
 ```bash 
-nodemon dast/index.js
+nodemon dist/index.js
 ```
 
 

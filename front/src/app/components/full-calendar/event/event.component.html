@@ -1,25 +1,32 @@
 
 <div class="col-lg-6">
     <div class="card text-white bg-secondary" style="max-width: 35rem;">
-    <div class="card-header text-center text-primary">{{operacion}} Evento</div>
-    <div class="card-body">
-        <div class="row justify-content-end">
-            <div class="col-3" *ngIf="id != 0">
-                <button class="btn btn-danger btn-sm" (click)="deleteEvent()">Eliminar</button>
-            </div>
+      <div class="row align-items-center card-header">
+        <div class=" offset-2 col-8">
+          <div class=" text-center text-primary">{{ operacion }} Producto</div>
         </div>
+        <div class="col-2 text-end align-self-end">
+          <span class="close-btn" (click)="close(false)">X</span>
+        </div>
+      </div>
+    <div class="card-body">
+
 
         <form [formGroup]="form" (ngSubmit)="addEvent()" >
+          <div>
             <label for="fomr1" class="form-label">Titulo:</label>
             <input formControlName="title" id="form1" type="text" class="form-control" placeholder="Ingrese titulo">
-            <span *ngIf="form.get('title')?.hasError('required') && form.get('title')?.touched" class="text-primary">
+            <span *ngIf="form.get('title')?.hasError('required') && form.get('title')?.touched" class="text-primary ">
                 El campo title es <strong>requerido</strong>
             </span>
-            <label for="form2" class="form-label mt-2">Fecha del evento (Formato: yyyy-MM-dd):</label>
-            <input formControlName="start" id="form2" type="text" class="form-control" placeholder="Ingrese fecha del inicio del evento">
-            <span *ngIf="form.get('start')?.invalid && form.get('start')?.touched" class="text-primary">
+          </div>
+            <div>
+            <label for="form2" class="form-label mt-2">Fecha del evento:</label>
+            <input formControlName="start" id="form2" type="date" class="form-control" placeholder="Ingrese fecha del inicio del evento">
+            <span *ngIf="form.get('start')?.invalid && form.get('start')?.touched" class="text-primary ">
                 El campo fecha es <strong>requerido</strong> y debe tener formato <strong>yyyy-MM-dd</strong>
             </span>
+          </div>
             <div>
                 <label for="exampleSelect1" class="form-label mt-2">Elige el color del Evento</label>
                 <select class="form-select" id="exampleSelect1" formControlName="backgroundColor">
@@ -35,10 +42,17 @@
               </div>
             <div class="row mt-2 text-center">
                 <div class="col-lg-6">
-                    <button  type="button" class="btn btn-secondary mt-2" (click)="close(false)">Volver</button>
+                  @if (eliminar==true) {
+                    <button class="btn btn-danger mt-2" (click)="deleteEvent()">Eliminar</button>
+                  }
                 </div>
-                <div class="col-lg-6">
-                    <button [disabled]="form.invalid"  type="submit" class="btn btn-primary mt-2" >Aceptar</button>
+                <div class="col-lg-6 ">
+                    <button  type="submit" class="btn btn-primary mt-2" >Aceptar</button>
+                </div>
+                <div>
+                    <span *ngIf="form.invalid && enviar == true" class="text-primary">
+                        Todos los campos son <strong>requeridos</strong>
+                    </span>
                 </div>
             </div> 
         </form>

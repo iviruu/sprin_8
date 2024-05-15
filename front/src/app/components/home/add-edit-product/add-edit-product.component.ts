@@ -18,7 +18,8 @@ export class AddEditProductComponent implements OnInit {
   form: FormGroup;
   loading:boolean = false;
   id: number;
-  operacion: string = 'Agregar '
+  operacion: string = 'Agregar ';
+  enviar: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -40,6 +41,7 @@ export class AddEditProductComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.enviar = false;
     
     if(this.id != 0){
       this.operacion = 'Editar ';
@@ -60,6 +62,10 @@ export class AddEditProductComponent implements OnInit {
     })
   }
   addProduct(){
+    this.enviar = true;
+    if (this.form.invalid) {
+      return;
+    }
     const product: Product = {
       name: this.form.value.name,
       descripcion: this.form.value.descripcion,

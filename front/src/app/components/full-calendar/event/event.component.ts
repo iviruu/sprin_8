@@ -19,6 +19,8 @@ export class EventComponent implements OnInit {
   id: number;
   operacion: string = 'Agregar ';
   date: string = '';
+  eliminar: boolean = false;
+  enviar: boolean = false;
 
   constructor(
     private fb: FormBuilder,
@@ -39,10 +41,12 @@ export class EventComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.enviar = false;
     
     if(this.id != 0){
       this.operacion = 'Editar ';
       this.getEvent(this.id);
+      this.eliminar = true;
     }
   }
 
@@ -61,10 +65,11 @@ export class EventComponent implements OnInit {
     })
   }
   addEvent(){
+    this.enviar= true;
     if (this.form.invalid) {
-      this.toastr.error('Por favor, completa todos los campos', 'Error');
       return;
     }
+    
     const event: Events = {
       start: this.form.value.start,
       title: this.form.value.title,
@@ -81,6 +86,7 @@ export class EventComponent implements OnInit {
       this.calendarService.saveEvent(event).subscribe(()=>{
         this.toastr.success(`El producto ${event.title} fue registado con exito`, 'Producto registrado');
         this.close(false);
+
       })
     } 
    }

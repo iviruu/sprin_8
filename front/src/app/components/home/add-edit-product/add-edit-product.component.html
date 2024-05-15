@@ -26,7 +26,12 @@
                         <button routerLink="/" type="button" class="btn btn-secondary">Volver</button>
                     </div>
                     <div class="col-lg-6">
-                        <button [disabled]="form.invalid"  type="submit" class="btn btn-primary">Aceptar</button>
+                        <button   type="submit" class="btn btn-primary">Aceptar</button>
+                    </div>
+                    <div>
+                        <span *ngIf="form.invalid && enviar == true" class="text-primary">
+                            Todos los campos son <strong>requeridos</strong>
+                        </span>
                     </div>
                 </div> 
             </form>
