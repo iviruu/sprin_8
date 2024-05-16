@@ -62,8 +62,9 @@ export class AddEditProductComponent implements OnInit {
     })
   }
   addProduct(){
-    this.enviar = true;
+    this.enviar = false;
     if (this.form.invalid) {
+      this.enviar = true;
       return;
     }
     const product: Product = {

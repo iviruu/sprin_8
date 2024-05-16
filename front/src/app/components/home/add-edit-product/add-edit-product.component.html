@@ -1,43 +1,49 @@
-<app-progress-bar *ngIf="loading"></app-progress-bar>
+
+<div class="container">
+    
+</div>
+<app-progress-bar  *ngIf="loading"></app-progress-bar>
 <div *ngIf="!loading" class="row mt-1">
-    <div class="offset-lg-4 col-lg-4 ">
-        <div class="card text-white bg-secondary mb-3" style="max-width: 25rem;">
-        <div class="card-header text-center">{{operacion}} Producto</div>
+    <div class="offset-lg-4 col-lg-4 cuerpo">
+        <div class="card text-white bg-secondary container" style="max-width: 35rem;">
+            <div class="row align-items-center card-header">
+              <div class=" offset-2 col-8">
+                <div class=" text-center text-primary">{{ operacion }} Producto</div>
+              </div>
+              <div class="col-2 text-end align-self-end">
+                <span class="close-btn" routerLink="/">X</span>
+              </div>
+            </div>
         <div class="card-body">
             <form [formGroup]="form" (ngSubmit)="addProduct()" >
                 <input formControlName="name" type="text" class="form-control" placeholder="Ingrese nombre">
-                <span *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched">
+                <span *ngIf="form.get('name')?.invalid && (form.get('name')?.touched || enviar)">
                     El campo nombre es <strong>requerido</strong>
                 </span>
                 <input formControlName="descripcion" type="text" class="form-control mt-2" placeholder="Ingrese descripcion">
-                <span *ngIf="form.get('descripcion')?.hasError('required') && form.get('descripcion')?.touched">
+                <span *ngIf="form.get('descripcion')?.hasError('required') && (form.get('descripcion')?.touched || enviar)">
                     El campo descripcion es <strong>requerido</strong>
                 </span>
                 <input formControlName="price" type="number" class="form-control mt-2" placeholder="Ingrese precio">
-                <span *ngIf="form.get('price')?.hasError('required') && form.get('price')?.touched">
+                <span *ngIf="form.get('price')?.hasError('required') && (form.get('price')?.touched || enviar)">
                     El campo price es <strong>requerido</strong>
                 </span>
                 <input formControlName="stock" type="number" class="form-control mt-2" placeholder="Ingrese stock">
-                <span *ngIf="form.get('stock')?.hasError('required') && form.get('stock')?.touched">
+                <span *ngIf="form.get('stock')?.hasError('required') && (form.get('stock')?.touched || enviar)">
                     El campo stock es <strong>requerido</strong>
                 </span>
                 <div class="row mt-2 text-center">
-                    <div class="col-lg-6">
-                        <button routerLink="/" type="button" class="btn btn-secondary">Volver</button>
-                    </div>
-                    <div class="col-lg-6">
+                    <div class="col align-items-center">
                         <button   type="submit" class="btn btn-primary">Aceptar</button>
-                    </div>
-                    <div>
-                        <span *ngIf="form.invalid && enviar == true" class="text-primary">
-                            Todos los campos son <strong>requeridos</strong>
-                        </span>
                     </div>
                 </div> 
             </form>
 
     </div>
     </div>
-</div>
+</div>    
+
+
+
 
 
